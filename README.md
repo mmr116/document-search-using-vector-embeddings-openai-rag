@@ -17,3 +17,30 @@ This project provides a simple web application that enables users to upload a PD
 **Generate response**: Based on the retrieved text chunks, context (previous queries and responses), and the user's query, a response is generated using OpenAI models (gpt-4o, gpt-4, or gpt-3.5-turbo). Users can select the OpenAI model through the web interface. The choice of model can affect the response style, detail, and accuracy.
 
 # Requirements
+
+The requirements.txt file lists the necessary Python packages and their versions required to run the application. Here's a breakdown of each package:
+
+**flask**: A lightweight Python web framework for building web applications.
+**pinecone-client**: The official Python client library for interacting with Pinecone, the vector database used in your application.
+**openai**: The official Python client library for the OpenAI API, used to generate text embeddings and interact with OpenAI's language models.
+**pypdf2**: A pure-python library for extracting text from PDF files.
+**langchain**: A framework for building applications with large language models, used in your application for text splitting and chunking.
+**numpy**: A package for scientific computing in Python, used for working with multidimensional arrays and vectors.
+
+To install these dependencies, you can create a new python virtual environment and run the following command:
+
+# API integration
+
+For integrating with OpenAI and Pinecone, you need to obtain and configure the respective API keys, host (pinecone) information for these platforms. Set your OpenAI and Pinecone API keys, and Pinecone host as environment variables in Linux. Use the following Linux commands to export these variables:
+
+export OPENAI_API_KEY='your-openai-api-key'
+
+export PINECONE_API_KEY='your-pinecone-api-key'
+
+export PINECONE_HOST='your-pinecone-host'
+
+Ensure you have an OpenAI account with valid API keys. You can obtain your API keys from the OpenAI platform (https://platform.openai.com/) and manage them (https://platform.openai.com/organization/api-keys). Additionally, ensure that your account has sufficient usage quota, as this example requires a paid OpenAI account.
+
+Pinecone environment (Pinecone free account used https://www.pinecone.io/): 1) Pinecone Index is used 2) Dimensions: 1536 3) Host type: Serverless.
+
+CentOS Linux release 8.5.2111 is used as Linux OS. Create a python virtual environment (optional but recommended) to isolate project dependencies.
