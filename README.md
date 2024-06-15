@@ -36,7 +36,7 @@ To install these dependencies, you can create a new python virtual environment a
 
 pip install -r requirements.txt
 
-# API integration
+# API integration and environment
 
 For integrating with OpenAI and Pinecone, you need to obtain and configure the respective API keys, host (pinecone) information for these platforms. Set your OpenAI and Pinecone API keys, and Pinecone host as environment variables in Linux. Use the following Linux commands to export these variables:
 
@@ -50,4 +50,4 @@ Ensure you have an OpenAI account with valid API keys. You can create or obtain 
 
 Pinecone environment (Pinecone free account used https://www.pinecone.io/): 1) Pinecone Index is used 2) Dimensions: 1536 3) Host type: Serverless.
 
-CentOS Linux release 8.5.2111 is used as Linux OS. Create a python virtual environment (optional but recommended) to isolate project dependencies.
+CentOS Linux release 8.5.2111 is used as Linux OS. A cloud Linux VM with a public IP (optional) has been tested for web interface. Local IP can be used as well. Create a python virtual environment (optional but recommended) to isolate project dependencies.
