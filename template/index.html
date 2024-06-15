@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Query Interface</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    .response {
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      white-space: pre-wrap;
+    }
+    .response p {
+      margin: 0 0 10px;
+    }
+    .flash {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Query Interface</h1>
+  <div id="flash-messages">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% if flash_message %}
+      <ul class="flash">
+        <li>{{ flash_message }}</li>
+      </ul>
+    {% endif %}
+  </div>
+  {% if uploaded_file %}
+    <p><strong>Uploaded PDF:</strong> {{ uploaded_file }}</p>
+    <form method="post">
+      <button type="submit" name="end_session">End session</button>
+    </form>
+    <form id="process-form" method="post">
+      <button type="submit" name="process_file">Process File</button>
+    </form>
+  {% else %}
+    <form id="upload-form" method="post" enctype="multipart/form-data">
+      <label for="file">Upload a PDF document:</label>
+      <input type="file" id="file" name="file" accept="application/pdf" required>
+      <br><br>
+      <button type="submit" id="upload-button">Upload</button>
+    </form>
+  {% endif %}
+  <br>
+  <form method="post">
+    <label for="query">Enter your query:</label>
+    <input type="text" id="query" name="query" required>
+    <br><br>
+    <label for="model">Choose model:</label>
+    <select id="model" name="model">
+      <option value="gpt-3.5-turbo" selected>gpt-3.5-turbo</option>
+      <option value="gpt-4">gpt-4</option>
+      <option value="gpt-4o">gpt-4o</option>
+    </select>
+    <br><br>
+    <input type="hidden" name="context" value="{{ context }}">
+    <button type="submit">Submit</button>
+  </form>
+  <br>
+  {% if user_query and refined_query and model %}
+    <div class="side-by-side">
+      <div>
+        <h3>Submitted queries:</h3>
+        <p>{{ user_query }}</p>
+      </div>
+      <div>
+        <h3>Refined queries:</h3>
+        <p>{{ refined_query }}</p>
+      </div>
+      <div>
+        <h3>Chat GPT Model:</h3>
+        <p>{{ model }}</p>
+      </div>
+    </div>
+  {% endif %}
+  <br>
+  <h2>Response:</h2>
+  <div class="response">{{ response|safe }}</div>
+</body>
+</html>
