@@ -15,3 +15,5 @@ This project provides a simple web application that enables users to upload a PD
 **Search for information**: Users can enter text queries to search for information within the uploaded document. The system retrieves relevant text chunks based on their vector similarity to the query embedding.
 
 **Generate response**: Based on the retrieved text chunks, context (previous queries and responses), and the user's query, a response is generated using chosen OpenAI model (gpt-4o, gpt-4, or gpt-3.5-turbo). The choice of model can affect the response style, detail, and accuracy.
+
+# Requirements
