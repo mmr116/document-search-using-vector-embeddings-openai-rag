@@ -125,6 +125,11 @@ The application will start running on port 5000, and you might see similar outpu
 * Running on http://127.0.0.1:5000
 * Running on http://your.vm.ip.address:5000 Press CTRL+C to quit
 
+Ensure that the application is actively listening for incoming connections on port 5000:
+
+netstat -aultpn | grep -i 5000
+tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      525661/python
+
 3. Open your web browser and navigate to either of the following URLs to access the application's web interface:
 
 http://127.0.0.1:5000/ (for local access)
