@@ -4,7 +4,7 @@ This project provides a simple web application that enables users to upload a PD
 
 # Key features
 
-**PDF document ingestion**: Users can upload PDF document for information retrieval.
+**PDF document ingestion**: Users can upload PDF document through the web interface for information retrieval.
 
 **Generate vector embeddings**: Text content is extracted from the PDF and split into smaller chunks using Langchain. Embeddings are generated for each chunk using OpenAI's text embedding model (e.g., text-embedding-ada-002).
 
