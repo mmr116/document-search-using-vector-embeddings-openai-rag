@@ -54,6 +54,8 @@ CentOS Linux release 8.5.2111 is used as Linux OS. A cloud Linux VM with a publi
 
 # How it works
 
+The application provides a web interface built with Flask, a Python web framework. Users can upload PDF document, enter queries, choose the OpenAI language model to use (GPT-3.5-turbo, GPT-4, or GPT-4o), and receive detailed responses based on the information extracted from the uploaded PDF documents.
+
 **Ingesting PDF document and creating vector embeddings**
 
 The application provides a web interface where users can upload PDF documents. Upon uploading a PDF file, the text content is extracted from the document and split into smaller chunks using the RecursiveCharacterTextSplitter from the LangChain library. This splitting process ensures that the text is divided into manageable chunks while maintaining context.
@@ -88,6 +90,5 @@ When a user submits a query through the web interface, the application processes
 
   The application maintains a context of previous queries and responses. This context is passed to OpenAI's language model during the response generation step, ensuring that the generated responses take into account the conversational history and provide accurate and contextually relevant information.
 
-- Interactive web interface:
-
-  The application provides a user-friendly web interface built with Flask, a Python web framework. Users can upload PDF documents, enter queries, choose the OpenAI language model to use (GPT-3.5-turbo, GPT-4, or GPT-4o), and receive detailed responses based on the information extracted from the uploaded PDF documents.
+  
+  
