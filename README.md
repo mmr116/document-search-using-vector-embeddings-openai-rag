@@ -1,6 +1,6 @@
 # An application to generate vector embeddings for PDF document, store them in a vector database, and enable semantic search and information retrieval using OpenAI's language models.
 
-This project provides a simple web application that enables users to upload a PDF document, generate vector embeddings from its content, and then search for information within the document using a text query. OpenAI's embedding and language models are used for creating embeddings and information retrieval.
+This project provides a simple web application that enables users to upload a PDF document, generate vector embeddings from its content, and then search for information within the document using a text query. OpenAI's embedding and language models are used for creating vector embeddings and information retrieval.
 
 # Key features
 
