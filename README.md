@@ -16,7 +16,7 @@ This project provides a simple web application that enables users to upload a PD
 
 **Generate response**: Based on the retrieved text chunks, context (previous queries and responses), and the user's query, a response is generated using OpenAI models (gpt-4o, gpt-4, or gpt-3.5-turbo). Users can select the OpenAI model through the web interface. The choice of model can affect the response style, detail, and accuracy.
 
-# Requirements
+# Required packages
 
 The requirements.txt file lists the necessary Python packages and their versions required to run the application. Here's a breakdown of each package:
 
