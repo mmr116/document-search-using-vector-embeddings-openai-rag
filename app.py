@@ -58,7 +58,9 @@ def home():
             else:
                 padded_query_vector = query_vector
 
+            # Adjust and experiment the top_k value based on your use case
             results = pinecone_index.query(vector=padded_query_vector.tolist(), top_k=1, include_metadata=True)
+            # Adjust the threshold value based on your use case
             score_threshold = 0.65
             filtered_matches = [match for match in results['matches'] if match['score'] > score_threshold]
 
