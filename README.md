@@ -82,6 +82,15 @@ When a user submits a query through the web interface, the application processes
 
   The query embedding is used to search the Pinecone vector database for the most semantically similar text chunks based on vector similarity.
 
+  **Note**: To query the Pinecone index and retrieve the top results, the following code is used (app.py)
+
+  results = pinecone_index.query(vector=padded_query_vector.tolist(), top_k=1, include_metadata=True)
+
+  The top_k parameter specifies the number of top results to return from the query. Adjusting the top_k value can impact the quality of the query responses. A higher top_k value may 
+  provide more comprehensive results but could also introduce less relevant data. Conversely, a lower top_k value may yield more precise but fewer results. It's important to experiment 
+  with different top_k values to find the optimal balance for your specific use case. Additionally, be aware that increasing the top_k value will also impact costs, especially when 
+  using a paid OpenAI model for processing the results. Higher top_k values result in more data being sent to and processed by the model, which can lead to increased usage charges.
+
 - Response generation:
 
   The relevant text chunks retrieved from the database are combined with the previous context (if any) and the original user query. This information is then sent to OpenAI's language model (the same model used for query refinement) to generate a comprehensive and contextually relevant response.
@@ -89,6 +98,8 @@ When a user submits a query through the web interface, the application processes
 - Context aware response:
 
   The application maintains a context of previous queries and responses. This context is passed to OpenAI's language model during the response generation step, ensuring that the generated responses take into account the conversational history and provide accurate and contextually relevant information.
+
+
 
 # Running the application
 
