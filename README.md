@@ -92,9 +92,10 @@ When a user submits a query through the web interface, the application processes
   with different top_k values to find the optimal balance for your specific use case. Additionally, be aware that increasing the top_k value will also impact costs, especially when 
   using a paid OpenAI model for processing the results. Higher top_k values result in more data being sent to and processed by the model, which can lead to increased usage charges.
 
-  **Note**: the score_threshold parameter determines the minimum relevance score required for a result to be considered which can impact the quality of the query response. So, adjust the threshold value based on your use case and experiments.
+  **Note**: the score_threshold parameter determines the minimum relevance score required for a result to be considered which can impact the quality of the query response. So, adjust the threshold value based on your use case and experiments (app.py).
 
   #Adjust the threshold value based on your use case
+  
   score_threshold = 0.65
 
 - Response generation:
