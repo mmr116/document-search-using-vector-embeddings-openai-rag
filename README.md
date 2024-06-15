@@ -34,6 +34,8 @@ The requirements.txt file lists the necessary Python packages and their versions
 
 To install these dependencies, you can create a new python virtual environment and run the following command:
 
+pip install -r requirements.txt
+
 # API integration
 
 For integrating with OpenAI and Pinecone, you need to obtain and configure the respective API keys, host (pinecone) information for these platforms. Set your OpenAI and Pinecone API keys, and Pinecone host as environment variables in Linux. Use the following Linux commands to export these variables:
