@@ -21,10 +21,15 @@ This project provides a simple web application that enables users to upload a PD
 The requirements.txt file lists the necessary Python packages and their versions required to run the application. Here's a breakdown of each package:
 
 **flask**: A lightweight Python web framework for building web applications.
+
 **pinecone-client**: The official Python client library for interacting with Pinecone, the vector database used in your application.
+
 **openai**: The official Python client library for the OpenAI API, used to generate text embeddings and interact with OpenAI's language models.
+
 **pypdf2**: A pure-python library for extracting text from PDF files.
+
 **langchain**: A framework for building applications with large language models, used in your application for text splitting and chunking.
+
 **numpy**: A package for scientific computing in Python, used for working with multidimensional arrays and vectors.
 
 To install these dependencies, you can create a new python virtual environment and run the following command:
