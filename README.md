@@ -140,14 +140,14 @@ http://VM Public IP:5000/ (for remote access over the internet)
 
 Also, make sure that the folder on your Linux machine, which will contain uploaded PDF file, does not contain the PDF file with the same name. If the file already exists, it will be overwritten.
 
-4. Upload the PDF file.
+4. Select the pdf file and upload it using the 'Upload' button.
 
-5. Process the file (in this stage, vector embeddings will be created and stored in the Pinecone database).
+5. Click on the "Process File" (in this stage, vector embeddings will be created and stored in the Pinecone database).
 
 6. Enter your search query. Select OpenAI language models from the drop down menu.
 
-7. Check the query response.
+7. Check the query response. Submit subsequent queries.
 
-8. Once done, finish the session. (it will trigger clean up - deletion of uploaded file and vector embeddings in the database)
+8. Once done, click the 'End Session' (it will trigger clean up - deletion of uploaded file and vector embeddings in the database)
    
 10. On the Linux macine, press CTRL+C to close the application (app.py).
