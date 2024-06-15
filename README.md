@@ -90,5 +90,27 @@ When a user submits a query through the web interface, the application processes
 
   The application maintains a context of previous queries and responses. This context is passed to OpenAI's language model during the response generation step, ensuring that the generated responses take into account the conversational history and provide accurate and contextually relevant information.
 
-  
-  
+# Running the application
+
+To run the application, follow these steps:
+
+1. Activate your Python virtual environment (optional): (venv) [user@host project_directory]#
+
+2. Run the app.py script: python app.py
+
+The application will start running on port 5000, and you might see similar output like the following:
+
+* Serving Flask app 'config'
+* Debug mode: off WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+* Running on all addresses (0.0.0.0)
+* Running on http://127.0.0.1:5000
+* Running on http://your.vm.ip.address:5000 Press CTRL+C to quit
+
+3. Open your web browser and navigate to either of the following URLs to access the application's web interface:
+
+http://127.0.0.1:5000/ (for local access)
+http://<VM Public IP>:5000/ (for remote access over the internet)
+
+**Note**: If you plan to access the application over the public IP, make sure to allow incoming traffic on port 5000 through the VM's firewall. This will ensure that communication over the public IP is allowed, and you can access the web interface remotely.
+
+Also, make sure that the folder on your Linux machine, which will contain uploaded PDF file, does not contain the PDF file with the same name. If the file already exists, it will be overwritten.
