@@ -14,8 +14,8 @@ from werkzeug.utils import secure_filename
 import os
 import numpy as np
 
-app.config['UPLOAD_FOLDER'] = '/tmp'
-app.secret_key = 'your-secret-key'
+app.config['UPLOAD_FOLDER'] = '/tmp'  # Not recommended for production environment
+app.secret_key = 'your-secret-key'    # Replace your secret key - not recommended to use like this in the production env
 
 # Clear the Pinecone database at the beginning
 try:
