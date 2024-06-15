@@ -51,3 +51,43 @@ Ensure you have an OpenAI account with valid API keys. You can create or obtain 
 Pinecone environment (Pinecone free account used https://www.pinecone.io/): 1) Pinecone Index is used 2) Dimensions: 1536 3) Host type: Serverless.
 
 CentOS Linux release 8.5.2111 is used as Linux OS. A cloud Linux VM with a public IP (optional) has been tested for web interface. Local IP can be used as well. Create a python virtual environment (optional but recommended) to isolate project dependencies.
+
+# How it works
+
+**Ingesting PDF document and creating vector embeddings**
+
+The application provides a web interface where users can upload PDF documents. Upon uploading a PDF file, the text content is extracted from the document and split into smaller chunks using the RecursiveCharacterTextSplitter from the LangChain library. This splitting process ensures that the text is divided into manageable chunks while maintaining context.
+
+Next, vector embeddings are generated for each text chunk using OpenAI's text-embedding-ada-002 model. These embeddings are high-dimensional vectors that capture the semantic meaning of the text, enabling efficient similarity search.
+
+**Storing vector embeddings in Pinecone**
+
+The generated vector embeddings, along with their corresponding text chunks and page numbers, are stored in a Pinecone vector database. Pinecone is a scalable and efficient vector database designed for storing and querying high-dimensional vectors.
+
+**Query Processing**
+
+When a user submits a query through the web interface, the application processes it in the following steps:
+
+- Query Refinement:
+
+  The user's query is sent to OpenAI's language model (e.g., GPT-3.5-turbo, GPT-4, or GPT-4o) to refine and improve the query for better search accuracy.
+
+- Embedding generation for the query
+
+  The refined query is converted into a vector embedding using OpenAI's text-embedding-ada-002 model.
+
+- Similarity search:
+
+  The query embedding is used to search the Pinecone vector database for the most semantically similar text chunks based on vector similarity.
+
+- Response generation:
+
+  The relevant text chunks retrieved from the database are combined with the previous context (if any) and the original user query. This information is then sent to OpenAI's language model (the same model used for query refinement) to generate a comprehensive and contextually relevant response.
+
+- Context aware response:
+
+  The application maintains a context of previous queries and responses. This context is passed to OpenAI's language model during the response generation step, ensuring that the generated responses take into account the conversational history and provide accurate and contextually relevant information.
+
+- Interactive web interface:
+
+  The application provides a user-friendly web interface built with Flask, a Python web framework. Users can upload PDF documents, enter queries, choose the OpenAI language model to use (GPT-3.5-turbo, GPT-4, or GPT-4o), and receive detailed responses based on the information extracted from the uploaded PDF documents.
