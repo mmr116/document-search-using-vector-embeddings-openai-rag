@@ -84,6 +84,7 @@ When a user submits a query through the web interface, the application processes
 
   **Note**: To query the Pinecone index and retrieve the top results, the following code is used (app.py)
 
+  #Adjust and experiment the top_k value based on your use case
   results = pinecone_index.query(vector=padded_query_vector.tolist(), top_k=1, include_metadata=True)
 
   The top_k parameter specifies the number of top results to return from the query. Adjusting the top_k value can impact the quality of the query responses. A higher top_k value may 
@@ -91,7 +92,7 @@ When a user submits a query through the web interface, the application processes
   with different top_k values to find the optimal balance for your specific use case. Additionally, be aware that increasing the top_k value will also impact costs, especially when 
   using a paid OpenAI model for processing the results. Higher top_k values result in more data being sent to and processed by the model, which can lead to increased usage charges.
 
-  Also, the score_threshold parameter determines the minimum relevance score required for a result to be considered which can impact the quality of the query response. So, adjust the threshold value based on your use case and experiments.
+  **Note**: the score_threshold parameter determines the minimum relevance score required for a result to be considered which can impact the quality of the query response. So, adjust the threshold value based on your use case and experiments.
 
   #Adjust the threshold value based on your use case
   score_threshold = 0.65
