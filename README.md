@@ -85,6 +85,7 @@ When a user submits a query through the web interface, the application processes
   **Note**: To query the Pinecone index and retrieve the top results, the following code is used (app.py)
 
   #Adjust and experiment the top_k value based on your use case
+
   results = pinecone_index.query(vector=padded_query_vector.tolist(), top_k=1, include_metadata=True)
 
   The top_k parameter specifies the number of top results to return from the query. Adjusting the top_k value can impact the quality of the query responses. A higher top_k value may 
