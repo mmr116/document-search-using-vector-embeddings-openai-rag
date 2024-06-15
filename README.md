@@ -133,6 +133,7 @@ tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      
 3. Open your web browser and navigate to either of the following URLs to access the application's web interface:
 
 http://127.0.0.1:5000/ (for local access)
+
 http://<VM Public IP>:5000/ (for remote access over the internet)
 
 **Note**: If you plan to access the application over the public IP, make sure to allow incoming traffic on port 5000 through the VM's firewall. This will ensure that communication over the public IP is allowed, and you can access the web interface remotely.
